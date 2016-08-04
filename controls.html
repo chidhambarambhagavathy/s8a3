@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Controls</title>
+	<style>
+		body {
+			margin: 0 auto;
+			text-align: center;
+			max-width: 800px;
+		}
+
+		#myform {
+			width: 800px;
+		}
+
+		input {
+			width: 150px;
+			height: 25px;
+			border: 2px solid #C7377F;
+			border-bottom: 0;
+			padding: 5px;
+		}
+
+		input[type='color'] {
+			border: 0;
+			width: 50px;
+			height: 12px;
+		}
+	</style>
+	<script src="modernizr-latest.js"></script>
+	<script>
+		function displayDetails() {
+			var email = document.getElementById("email");
+			var pass = document.getElementById("pass");
+			var url = document.getElementById("url");
+			var date = document.getElementById("date");
+
+			alert("Email : " + email.value + "\nPassword : " + pass.value + "\n" +
+				"URL : " + url.value + "\nDate : " + dd.value + "\n" +
+				"Date : " + dd.value + "\nMonth : " + mm.value + "\n" +
+				"Week : " + wk.value + "\nTime : " + tt.value + "\n" +
+				"Color : " + clr.value + "\nAge : " + slider1.value + "\n" + 
+				"Hobbies : " + hobby.value);
+		}
+	</script>
+
+</head>
+<body>
+	<p> Fill the Form </p>
+	<form id="myform" action="#" onsubmit="return validateForm()">
+		<input id="email" type="email" placeholder="Email" autofocus required><br>
+		<input id="pass" type="password" placeholder="Password" required><br>
+		<input id="url" type="url" placeholder="Your project URL" required><br>
+		<input id="dd" type="date" placeholder="Project completion date" required><br>
+		<input id="mm" type="month" placeholder="Current month" required><br>
+		<input id="wk" type="week" placeholder="Current week" required><br>
+		<input id="tt" type="time" placeholder="Current time" required style="border-bottom: 2px solid #C7377F;"><br>
+		<p>Select color: <input id="clr" type="color" placeholder="Select Color" required></p>
+		<p>Age: <input id="slider1" type="range" min="1" max="120" value="1" step="1" oninput="age.value=slider1.value" /><output name="age" for="slider1">1</output>	
+	    <p>Hobbies: 
+	    <datalist id="hobbies">
+	    <span class="Label">Pick an option:</span>
+	      <select id="hobby">
+	        <option label="Playing Cricket" value="cricket">
+	        <option label="Listening Music" value="music">
+	        <option label="Playing Cards" value="cards">
+	        <option label="Drawing" value="drawing">
+	      </select>
+	    <br>
+	    </datalist>
+		<input list="hobbies" required style="border-bottom: 2px solid #C7377F;"> </p><br><br>
+		<input type="submit" value="Submit Query" style="border: none" onclick="displayDetails()">
+	</form>
+</body>
+</html>
